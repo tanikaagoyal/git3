@@ -1,7 +1,24 @@
 #include <bits/stdc++.h>
-int main ()
+using namespace std;
+
+int dotProduct(int vecA[], int vecB[])
 {
-	vector <int> vec1 = {1,2,3};
-	vector <int> vec2 = {1,2,3};
-	return 14;
+    int product = 0;
+    for (int i = 0; i < 3; i++)
+        product = product + vecA[i]*vecB[i];
+ 
+    return product;
 }
+
+int main()
+{
+    cout <<"PARALLELISM ADDED";
+    int vecA[] = {4, -5, 4};
+    int vecB[] = {2, 6, 5};
+    
+    cout << "DOT PRODUCT: ";
+    cout << dotProduct(vecA, vecB) << endl;
+
+    return 0;
+}
+
