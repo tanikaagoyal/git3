@@ -6,13 +6,11 @@ int dotProduct(int vecA[], int vecB[])
     int product = 0;
     for (int i = 0; i < 3; i++)
         product = product + vecA[i]*vecB[i];
- 
     return product;
 }
 
 int main()
 {
-    cout <<"PARALLELISM ADDED";
     int vecA[] = {4, -5, 4};
     int vecB[] = {2, 6, 5};
     
