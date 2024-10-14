@@ -11,7 +11,7 @@ int dotProduct(int vecA[], int vecB[])
 
 int main()
 {	
-    cout << "STASH";
+   
     int vecA[] = {4, -5, 4};
     int vecB[] = {2, 6, 5};
     
