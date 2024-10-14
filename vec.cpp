@@ -6,7 +6,7 @@ int dotProduct(int vecA[], int vecB[])
     int product = 0;
     for (int i = 0; i < 3; i++)
         product = product + vecA[i]*vecB[i];
-        
+    cout << "PARALLELISM IN CODE";
     return product;
 }
 
