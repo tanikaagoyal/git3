@@ -19,5 +19,6 @@ int main()
     cout << dotProduct(vecA, vecB) << endl;
 
     return 0;
+    // I am adding this line - Kushagra Ambasha
 }
 
