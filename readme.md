@@ -1,87 +1,64 @@
-# TANIKA GOYAL 2023UCP1847
-## TECHNICAL WRITING ASSIGNMENT (LAB 4)
-### VECTOR DOT PRODUCT
+# ABHYUDAYA TAK 2023ucp1602 
+## TECHNICAL WRITING ASSIGNMENT (LAB 4)  
+### VECTOR CROSS PRODUCT  
 
-**Vector is a quantity that has both magnitude and direction. Some mathematical operations can be performed on vectors such as addition and multiplication. The multiplication of vectors can be done in two ways, i.e. dot product and cross product.**
+*Vector is a quantity that has both magnitude and direction. Several mathematical operations can be performed on vectors, such as addition and multiplication. The multiplication of vectors can be done in two ways: dot product and cross product.*  
+>This text has been adapted from [Byjus](https://byjus.com/maths/cross-product-of-two-vectors/).  
 
->This text has been copied from [Byjus](https://byjus.com/maths/dot-product-of-two-vectors/).
+**The cross product of two vectors is the product of the magnitudes of the vectors and the sine of the angle between them, resulting in a vector that is perpendicular to the plane containing the two vectors:**  
+\[ \mathbf{a} \times \mathbf{b} = |\mathbf{a}| |\mathbf{b}| \sin \theta \, \hat{n} \]  
+Where:
+- *|\(\mathbf{a}\)|* and *|\(\mathbf{b}\)|* are the magnitudes of vectors *\(\mathbf{a}\)* and *\(\mathbf{b}\)*.
+- *θ* is the angle between the two vectors.
+- *\(\hat{n}\)* is the unit vector perpendicular to both *\(\mathbf{a}\)* and *\(\mathbf{b}\)*, following the right-hand rule.
 
-***The dot product of two vectors is the product of the magnitude of the two vectors and the cos of the angle between them:***
+![CROSS PRODUCT OF TWO VECTORS](https://cdn1.byjus.com/wp-content/uploads/2022/09/Cross-Product-Of-Two-Vectors-1.png)
 
-*a.b=|a||b| cosθ*
+#### Special Cases:
+- *When the angle θ between the vectors is 0°* (i.e., the vectors are parallel), the cross product is *0* (no perpendicular vector).
+- *When the angle θ is 90°* (i.e., the vectors are perpendicular), the magnitude of the cross product is *|\(\mathbf{a}\)| |\(\mathbf{b}\)|*.
+- *When the vectors are in the same direction* (i.e., θ = 0°), the result is a *zero vector*.
 
-![DOT PRODUCT OF TWO VECTORS](https://cdn1.byjus.com/wp-content/uploads/2022/09/Dot-Product-Of-Two-Vectors-1.png)
+---
 
+### WHAT HAVE WE LEARNED SO FAR?
 
-- When angle between them is 0, the a.b = |a||b|
-- When angle between them is 90, then a.b = 0
-- When angle between them is 30, then a.b = |a||b|/2
-
-
-
-WHAT HAVE WE LEARNT TILL NOW?
-- [x] What is dot product?
+- [x] What is the cross product?
 - [x] How to compute it?
-- [ ] Properties of dot product
+- [ ] Properties of cross product  
 
-**Dot Product Properties of Vector:**
+*Cross Product Properties of Vectors:*
 
-1. Property 1: Dot product of two vectors is commutative i.e. a.b = b.a = ab cos θ.
-2. Property 2: If a.b = 0 then it can be clearly seen that either b or a is zero or cos θ = 0. It suggests that either of the vectors is zero or they are perpendicular to each other.
-3.  Also we know that using scalar product of vectors (pa).(qb)=(pb).(qa)=pq a.b
-4. The dot product of a vector to itself is the magnitude squared of the vector a.a = a.a cos 0= a2
-5. The dot product follows the distributive law also i.e. a.(b + c) = a.b + a.c
+| *Property*                         | *Explanation*                                                                                             |
+|:------------------------------------:|:-----------------------------------------------------------------------------------------------------------|
+| *Non-Commutativity*                | The cross product is *not commutative*, meaning:                                                        \[ \mathbf{a} \times \mathbf{b} \neq \mathbf{b} \times \mathbf{a} \] |
+| *Magnitude*                        | The magnitude of the cross product is given by:                                                         \[ |\mathbf{a} \times \mathbf{b}| = |\mathbf{a}| |\mathbf{b}| \sin \theta \] |
+| *Zero Cross Product*               | If *\(\mathbf{a} \times \mathbf{b} = 0\)*, it implies that the vectors are either parallel or anti-parallel, or one of the vectors is a zero vector. |
+| *Distributivity*                   | The cross product follows the distributive property: \[ \mathbf{a} \times (\mathbf{b} + \mathbf{c}) = \mathbf{a} \times \mathbf{b} + \mathbf{a} \times \mathbf{c} \] |
+| *Cross Product with Itself*        | The cross product of a vector with itself is always *0*: \[ \mathbf{a} \times \mathbf{a} = 0 \] |
 
-CODE FOR DOT PRODUCT [^1]
+---
 
-> [!NOTE]
-> THE DOT PRODUCT AND CROSS PRODUCT ARE NOT SAME 
+### CODE FOR CROSS PRODUCT
 
-> [!TIP]
-> WHILE PRACTISING CALCULATE BOTH SO AS TO UNDERSTAND THE DIFFERENCE
+To calculate the cross product of two vectors in *C*, the following function can be used:
 
-> [!IMPORTANT]  
-> THE OUTPUT WILL BE DIFFERENT FOR BOTH DOT AND CROSS PRODUCT.
+```c
+#include <stdio.h>
 
-### TABLE SHOWING DIFFERENCE BETWEEN CROSS AND DOT PRODUCT
-
-|DOT PRODUCT | CROSS PRODUCT |
-| :--------: | :-------: |
-| The dot product is the product of the magnitude of the vectors and the cos of the angle between them. |The cross product is the product of the magnitude of the vector and the sine of the angle in which they subtend each other. |
-|The output is a scalar. | 	The output is a vector. |
-| ab cos theta | ab sin theta  |
-
-
-![DIFFERENCE](https://www.vedantu.com/question-sets/f8c38a91-d7eb-4b1a-a8f7-1c46eb4679c58606503569967698205.png)
-
-
-When `a.b = 0` means angle between them `theta = 90`
-When `a.b = |a||b|` means angle between them `theta = 0`
-
-***CODE FOR DOT PRODUCT***
-```
-int dotProduct(int vect_A[], int vect_B[])
-{
-    int product = 0;
-    for (int i = 0; i < n; i++)
-    {
-        product = product + vect_A[i] * vect_B[i];
-    }
-    return product;
+void crossProduct(int vect_A[], int vect_B[], int result[]) {
+    result[0] = vect_A[1] * vect_B[2] - vect_A[2] * vect_B[1];
+    result[1] = vect_A[2] * vect_B[0] - vect_A[0] * vect_B[2];
+    result[2] = vect_A[0] * vect_B[1] - vect_A[1] * vect_B[0];
 }
-```
 
-*SQUARE ROOT OF A NUMBER:* $$\sqrt{x}$$
-
-**MATHS EXPRESSIONS**
-$$\left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)$$
-
-
-
-[^1]: import numpy as np
-Taking two scalar values
-a = 5
-b = 7
-print(np.dot(a, b))
-
-
+int main() {
+    int vect_A[3] = {1, 2, 3};
+    int vect_B[3] = {4, 5, 6};
+    int result[3];
+    
+    crossProduct(vect_A, vect_B, result);
+    
+    printf("Cross Product: (%d, %d, %d)\n", result[0], result[1], result[2]);
+    return 0;
+}
